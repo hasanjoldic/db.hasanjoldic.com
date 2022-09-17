@@ -1,0 +1,40 @@
+version: "3.7"
+services:
+
+  auth.hasanjoldic.com:
+    image: postgres:14
+    restart: always
+    volumes:
+      - auth.hasanjoldic.com:/var/lib/postgresql/data
+    ports:
+      - 3050:5432
+    env_file:
+      - .env
+
+  images.hasanjoldic.com:
+    image: postgres:14
+    restart: always
+    volumes:
+      - images.hasanjoldic.com:/var/lib/postgresql/data
+    ports:
+      - 3040:5432
+    env_file:
+      - .env
+
+  money.hasanjoldic.com:
+    image: postgres:14
+    restart: always
+    volumes:
+      - money.hasanjoldic.com:/var/lib/postgresql/data
+    ports:
+      - 3030:5432
+    env_file:
+      - .env
+
+volumes:
+  auth.hasanjoldic.com:
+    name: auth.hasanjoldic.com:
+  images.hasanjoldic.com:
+    name: images.hasanjoldic.com:
+  money.hasanjoldic.com:
+    name: money.hasanjoldic.com
