@@ -3,6 +3,7 @@ services:
 
   auth.hasanjoldic.com:
     image: postgres:14
+    container_name: auth.hasanjoldic.com
     restart: always
     volumes:
       - auth.hasanjoldic.com:/var/lib/postgresql/data
@@ -13,6 +14,7 @@ services:
 
   images.hasanjoldic.com:
     image: postgres:14
+    container_name: images.hasanjoldic.com
     restart: always
     volumes:
       - images.hasanjoldic.com:/var/lib/postgresql/data
@@ -23,6 +25,7 @@ services:
 
   money.hasanjoldic.com:
     image: postgres:14
+    container_name: money.hasanjoldic.com
     restart: always
     volumes:
       - money.hasanjoldic.com:/var/lib/postgresql/data
