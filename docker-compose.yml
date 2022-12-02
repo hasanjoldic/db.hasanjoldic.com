@@ -1,14 +1,14 @@
 version: "3.7"
 services:
 
-  auth.hasanjoldic.com:
+  money.hasanjoldic.com:
     image: postgres:14
-    container_name: auth.hasanjoldic.com
+    container_name: money.hasanjoldic.com
     restart: always
     volumes:
-      - auth.hasanjoldic.com:/var/lib/postgresql/data
+      - money.hasanjoldic.com:/var/lib/postgresql/data
     ports:
-      - 3050:5432
+      - 3030:5432
     env_file:
       - .env
 
@@ -23,14 +23,25 @@ services:
     env_file:
       - .env
 
-  money.hasanjoldic.com:
+  auth.hasanjoldic.com:
     image: postgres:14
-    container_name: money.hasanjoldic.com
+    container_name: auth.hasanjoldic.com
     restart: always
     volumes:
-      - money.hasanjoldic.com:/var/lib/postgresql/data
+      - auth.hasanjoldic.com:/var/lib/postgresql/data
     ports:
-      - 3030:5432
+      - 3050:5432
+    env_file:
+      - .env
+
+  javnikonkursi.hasanjoldic.com:
+    image: postgres:14
+    container_name: javnikonkursi.hasanjoldic.com
+    restart: always
+    volumes:
+      - javnikonkursi.hasanjoldic.com:/var/lib/postgresql/data
+    ports:
+      - 3060:5432
     env_file:
       - .env
 
@@ -41,3 +52,5 @@ volumes:
     name: images.hasanjoldic.com
   money.hasanjoldic.com:
     name: money.hasanjoldic.com
+  javnikonkursi.hasanjoldic.com:
+    name: javnikonkursi.hasanjoldic.com
